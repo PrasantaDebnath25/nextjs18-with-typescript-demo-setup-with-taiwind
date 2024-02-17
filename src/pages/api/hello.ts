@@ -5,9 +5,33 @@ type Data = {
   name: string;
 };
 
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>,
+async function callingApi(
+  // req: NextApiRequest,
+  // ress: NextApiResponse<Data>,
 ) {
-  res.status(200).json({ name: "John Doe" });
+  const res = await fetch('/api/v1/employees')
+  return res.json();
+  // return //res.status(200).json({ name: "John Doe" });
+}
+
+async function methodCall(
+  // req: NextApiRequest,
+  // ress: NextApiResponse<Data>,
+) {
+  const res = await fetch('/api/v1/employee/1')
+  return res.json();
+  // return //res.status(200).json({ name: "John Doe" });
+}
+
+export default async function Call(
+  type: number,
+  // ress: NextApiResponse<Data>,
+) {
+  if (type === 1)
+    callingApi()
+  else {
+    methodCall()
+  }
+
+  // return //res.status(200).json({ name: "John Doe" });
 }
