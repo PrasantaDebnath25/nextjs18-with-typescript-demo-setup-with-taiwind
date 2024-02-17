@@ -6,10 +6,13 @@ import Call from "./api/hello";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  useEffect(()=>{
+  useEffect(() => {
+    console.log(
+      "You will see this log twice for dev mode, once after state change - double effect call"
+    );
     Call(1)
     Call(2)
-  },[])
+  }, [])
   return (
     <main
       className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
