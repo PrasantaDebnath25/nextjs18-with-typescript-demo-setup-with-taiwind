@@ -1,0 +1,1 @@
+# nextjs18-with-typescript-demo-setup-with-taiwind
